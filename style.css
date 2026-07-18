@@ -1,37 +1,32 @@
+/* ===========================
+   BISTO AI - STYLE.CSS (UPGRADED)
+   Elite dark theme, tighter spacing, responsive 2x2 grids
+   =========================== */
+
 :root{
-  /* elite palette: deep navy, charcoal, gold, emerald */
-  --bg: #03060A;
-  --panel: #071426;
-  --muted-bg: #081426;
-  --text: #F7FAFF;
-  --muted: #9FB0C4;
-  --accent-royal: #0A5CFF;   /* royal blue */
-  --accent-deep: #002552;    /* deep navy */
-  --accent-gold: #FFD36B;    /* gold */
-  --accent-emerald: #17C57D; /* emerald */
-  --card-radius: 12px;
-  --max-width: 1100px;
-  --gap: 12px;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  --bg:#03060A;
+  --panel:#071426;
+  --muted-bg:#081426;
+  --text:#F7FAFF;
+  --muted:#9FB0C4;
+  --accent-royal:#0A5CFF;
+  --accent-deep:#002552;
+  --accent-gold:#FFD36B;
+  --accent-emerald:#17C57D;
+  --card-radius:12px;
+  --max-width:1160px;
+  --gap:12px;
+  font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
 }
 
-/* Base + compact spacing */
+/* Base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-weight:800;letter-spacing:0.2px}
-.container{max-width:var(--max-width);padding:12px;margin:0 auto}
+.container{max-width:var(--max-width);padding:14px;margin:0 auto}
 
 /* Header */
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:95;
-  background:linear-gradient(180deg, rgba(3,6,10,0.85), rgba(3,6,10,0.6));
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  backdrop-filter: blur(6px);
-}
+.site-header{position:sticky;top:0;z-index:95;background:linear-gradient(180deg,rgba(3,6,10,0.85),rgba(3,6,10,0.6));border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
 .brand-name{font-weight:900;font-size:20px}
@@ -39,6 +34,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-weight:800;letter-spac
 @keyframes logoFloat{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(1.5deg)}100%{transform:translateY(0) rotate(0)}}
 .nav-list{display:flex;gap:12px;list-style:none;padding:0;margin:0}
 .nav-list a{color:var(--muted);text-decoration:none;padding:6px;border-radius:8px}
+.header-actions{display:flex;gap:10px;align-items:center}
+.asset-select{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;font-weight:800}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:12px;font-weight:900;text-decoration:none}
@@ -57,36 +54,42 @@ body{margin:0;background:var(--bg);color:var(--text);font-weight:800;letter-spac
 .hero-sub{margin:8px 0 12px;color:var(--muted);font-weight:800}
 .cta-group{display:flex;gap:12px;align-items:center}
 
-/* Trade ticker */
+/* current price */
+.current-price{margin-top:12px;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#091426,#05101A);padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+.current-price .label{font-size:12px;color:var(--muted);font-weight:800}
+.current-price strong{font-size:18px;letter-spacing:0.5px}
+
+/* trade ticker */
 .trade-ticker{margin-top:12px;overflow:hidden;background:linear-gradient(180deg,#041426,#021018);padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
 .ticker-track{display:flex;gap:18px;white-space:nowrap;will-change:transform}
+.tick-item{font-weight:800;color:var(--muted);padding:4px 10px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent)}
 
 /* Floating phone */
 .hero-right{display:flex;justify-content:flex-end}
-.phone-mockup{width:420px;border-radius:16px;background:linear-gradient(180deg,#071425,#03101B);border:1px solid rgba(255,255,255,0.03);box-shadow:0 28px 60px rgba(0,0,0,0.6);overflow:hidden;transform-origin:center;animation:breath 8s ease-in-out infinite}
+.phone-mockup{width:460px;border-radius:16px;background:linear-gradient(180deg,#071425,#03101B);border:1px solid rgba(255,255,255,0.03);box-shadow:0 28px 60px rgba(0,0,0,0.6);overflow:hidden;transform-origin:center;animation:breath 8s ease-in-out infinite}
 @keyframes breath{0%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.006)}100%{transform:translateY(0) scale(1)}}
 .phone-top{height:36px;display:flex;align-items:center;justify-content:space-between;padding:8px}
 .phone-screen{padding:12px}
-.live-chart-wrap{background:linear-gradient(180deg,#061428,#04101A);border-radius:12px;padding:8px}
-canvas{width:100%;height:200px;display:block;border-radius:8px}
+.live-chart-wrap{position:relative;background:linear-gradient(180deg,#061428,#04101A);border-radius:12px;padding:8px}
+#chart-tooltip{position:absolute;pointer-events:none;background:#020712;color:#fff;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);font-weight:800;font-size:13px;transform:translate(-50%,-120%);display:none}
 
-/* small stats */
+/* mini stats */
 .mini-stats{display:flex;gap:12px;justify-content:space-between;margin-top:10px}
 .stat-item{display:flex;flex-direction:column}
 .stat-value{font-weight:900}
 .stat-label{font-size:12px;color:var(--muted);font-weight:800}
 
-/* 2x2 short grid */
+/* grids */
 .short-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 
-/* Feature card */
+/* feature card */
 .feature-card{background:linear-gradient(180deg,var(--muted-bg),#061225);padding:14px;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.6);display:flex;gap:12px;align-items:flex-start;transition:transform .28s ease}
 .feature-card:hover{transform:translateY(-6px)}
 .icon-wrap{width:56px;height:56;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(10,92,255,0.06), rgba(0,37,82,0.02))}
 .feature-card h3{margin:0;font-size:16px;font-weight:900}
 .feature-card p{margin:4px 0 0;color:var(--muted);font-weight:800}
 
-/* Reviews */
+/* reviews */
 .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .review-card{background:linear-gradient(180deg,#04101A,#031018);padding:14px;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.6);display:flex;flex-direction:column;gap:10px}
 .review-star{color:var(--accent-gold);font-weight:900}
@@ -94,7 +97,7 @@ canvas{width:100%;height:200px;display:block;border-radius:8px}
 .review-meta{display:flex;gap:10px;align-items:center}
 .avatar{width:44px;height:44;border-radius:10px;background:linear-gradient(180deg,var(--accent-royal),var(--accent-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
 
-/* Trust cards */
+/* trust cards */
 .trust-card{background:linear-gradient(180deg,var(--muted-bg),#061225);padding:12px;border-radius:12px;display:flex;flex-direction:column;gap:6px}
 .stat-number{font-size:22px;font-weight:900}
 
@@ -103,14 +106,12 @@ canvas{width:100%;height:200px;display:block;border-radius:8px}
 .pulse{animation:pulse 2.2s infinite}
 @keyframes pulse{0%{box-shadow:0 8px 28px rgba(10,92,255,0.10)}50%{box-shadow:0 22px 44px rgba(10,92,255,0.12)}100%{box-shadow:0 8px 28px rgba(10,92,255,0.10)}}
 
-/* Footer */
+/* footer */
 .site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:12px 0;margin-top:12px}
 .footer-grid{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand-footer{display:flex;align-items:center;gap:10px}
-.brand-footer-name{font-weight:900}
 
-/* Responsive */
-@media(max-width:900px){
+/* responsive */
+@media(max-width:980px){
   .nav-list{display:none}
   .short-grid{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr}
@@ -118,7 +119,7 @@ canvas{width:100%;height:200px;display:block;border-radius:8px}
   .phone-mockup{width:92%;margin:0 auto}
 }
 
-/* Reduced motion */
+/* reduced motion */
 @media (prefers-reduced-motion: reduce){
   .logo, .phone-mockup, .pulse { animation: none; }
   .feature-card { transition: none; }
